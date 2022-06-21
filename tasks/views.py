@@ -3,11 +3,10 @@ from django.shortcuts import render
 
 from django.urls.base import reverse_lazy
 
-from django.views.generic.edit import CreateView
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-
-from django.views.generic import ListView
 
 from tasks.models import Task
 
@@ -35,3 +34,14 @@ class TaskListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         user = self.request.user
         return Task.objects.filter(assignee=user)
+
+
+class TaskUpdateView(UpdateView):
+
+    model = Task
+    template_name = "tasks/list.html"
+    context_object_name = "update_task_list"
+
+    fields = ['is_completed']
+
+    success_url = reverse_lazy('show_my_tasks')
