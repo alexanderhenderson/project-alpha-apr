@@ -1,10 +1,10 @@
-{% extends 'base.html' %} {% block title %}
+{% extends 'base.html' %}{% load markdownify %} {% block title %}
 <title>Detail View {{ project_list.name }}</title>
 {% endblock title %}{% block content %}
 <main>
 	<div>
 		<h1>Project {{project_list.name}}</h1>
-		<p>{{project_list.description}}</p>
+		<p>{{project_list.description|markdownify}}</p>
 		<h2>Tasks</h2>
 		<p>
 			<a href="{% url 'create_task' %}"> Create a new task </a>
