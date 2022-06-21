@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.urls.base import reverse_lazy
 
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from projects.models import Project
@@ -20,3 +21,9 @@ class ProjectListView(LoginRequiredMixin, ListView):
         user = self.request.user
         return Project.objects.filter(members=user)
     
+
+class ProjectDetailView(LoginRequiredMixin, DetailView):
+    model = Project
+    template_name = 'projects/detail.html'
+    context_object_name = "project_list"
+    login_url = reverse_lazy('login')
