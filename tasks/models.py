@@ -1,8 +1,8 @@
-from asyncio.windows_events import NULL
 from django.db import models
 
 from django.conf import settings
-USER_MODEL = settings.AUTH_USER_MODEL   # store the model's name in a variable
+
+USER_MODEL = settings.AUTH_USER_MODEL  # store the model's name in a variable
 
 
 # Create your models here.
@@ -14,16 +14,11 @@ class Task(models.Model):
     due_date = models.DateTimeField()
     is_completed = models.BooleanField(default=False)
     project = models.ForeignKey(
-        'projects.Project',
-        related_name='tasks',
-        on_delete=models.CASCADE
-        )
+        "projects.Project", related_name="tasks", on_delete=models.CASCADE
+    )
     assignee = models.ForeignKey(
-        USER_MODEL,
-        null=True,
-        related_name='tasks',
-        on_delete=models.SET_NULL
-        )
+        USER_MODEL, null=True, related_name="tasks", on_delete=models.SET_NULL
+    )
 
     def __str__(self):
         return self.name

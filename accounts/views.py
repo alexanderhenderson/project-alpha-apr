@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.views.generic import FormView
@@ -22,7 +20,7 @@ class SigninView(FormView):
         login(
             self.request,
             user,
-            backend='django.contrib.auth.backends.ModelBackend'
-            )
+            backend="django.contrib.auth.backends.ModelBackend",
+        )
 
-        return HttpResponseRedirect(reverse_lazy('home'))
+        return HttpResponseRedirect(reverse_lazy("home"))

@@ -1,7 +1,8 @@
 from django.db import models
 
-from django.conf import settings        # importing current user model
-USER_MODEL = settings.AUTH_USER_MODEL   # store the model's name in a variable
+from django.conf import settings  # importing current user model
+
+USER_MODEL = settings.AUTH_USER_MODEL  # store the model's name in a variable
 
 # Create your models here.
 

@@ -14,12 +14,25 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='ProjectModel',
+            name="ProjectModel",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200)),
-                ('desciption', models.TextField()),
-                ('members', models.ManyToManyField(related_name='projects', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200)),
+                ("desciption", models.TextField()),
+                (
+                    "members",
+                    models.ManyToManyField(
+                        related_name="projects", to=settings.AUTH_USER_MODEL
+                    ),
+                ),
             ],
         ),
     ]

@@ -20,9 +20,9 @@ from django.urls import path, include  # reverse_lazy (not used yet)
 from django.views.generic.base import RedirectView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('projects/', include('projects.urls')),
-    path('accounts/', include('accounts.urls')),
-    path('tasks/', include('tasks.urls')),
-    path("", RedirectView.as_view(url='/projects/'), name='home'),
-    ]
+    path("admin/", admin.site.urls),
+    path("projects/", include("projects.urls")),
+    path("accounts/", include("accounts.urls")),
+    path("tasks/", include("tasks.urls")),
+    path("", RedirectView.as_view(url="/projects/"), name="home"),
+]

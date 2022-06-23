@@ -7,14 +7,14 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('projects', '0003_rename_desciption_project_description'),
+        ("projects", "0003_rename_desciption_project_description"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('tasks', '0003_rename_star_date_tasks_start_date'),
+        ("tasks", "0003_rename_star_date_tasks_start_date"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='Tasks',
-            new_name='Task',
+            old_name="Tasks",
+            new_name="Task",
         ),
     ]

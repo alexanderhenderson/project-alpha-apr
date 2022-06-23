@@ -1,6 +1,3 @@
-from typing import List
-from django.shortcuts import render
-
 from django.urls.base import reverse_lazy
 
 from django.views.generic import ListView
@@ -19,10 +16,10 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
     template_name = "tasks/create.html"
     context_object_name = "create_task"
 
-    fields = ['name', 'start_date', 'due_date', 'project', 'assignee']
+    fields = ["name", "start_date", "due_date", "project", "assignee"]
 
     def get_success_url(self):
-        return reverse_lazy("show_project", kwargs={'pk': self.object.pk})
+        return reverse_lazy("show_project", kwargs={"pk": self.object.pk})
 
 
 class TaskListView(LoginRequiredMixin, ListView):
@@ -42,6 +39,6 @@ class TaskUpdateView(UpdateView):
     template_name = "tasks/list.html"
     context_object_name = "update_task_list"
 
-    fields = ['is_completed']
+    fields = ["is_completed"]
 
-    success_url = reverse_lazy('show_my_tasks')
+    success_url = reverse_lazy("show_my_tasks")
