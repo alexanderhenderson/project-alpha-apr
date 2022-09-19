@@ -21,3 +21,11 @@ What it does:
 
 Technologies Utilized:
     Python, Django Framework, Monolithic Application.
+
+Photos of website running:
+    ![Project Detail Page](./image.png)
+    ![Projects Page](./image-1.png)
+    ![User's Assigned Tasks Page](./image-2.png)
+    ![Signup Page](./image-3.png)
+
+
